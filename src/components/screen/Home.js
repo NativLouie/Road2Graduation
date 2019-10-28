@@ -67,6 +67,10 @@ class Home extends Component {
 
 	}
 
+	handleWebSiteRedirect = (hashTag) => {
+		window.open(`https://twitter.com/search?q=%23${ hashTag }&src=typd&lang=en`)
+	}
+
 	render () {
 		const { unt, dccd, nctc, searchText, showSearch, activeSchool } = this.state
 
@@ -75,7 +79,6 @@ class Home extends Component {
 				|| value.description.toLocaleLowerCase().includes(searchText.toLocaleLowerCase())
 				|| value.year.toLocaleLowerCase().includes(searchText.toLocaleLowerCase())
 		})
-
 		return (
 			<div className='tc '>
 				<div>
@@ -86,22 +89,25 @@ class Home extends Component {
 					<Card
 						data={ unt }
 						logo={ logos.unt }
-						onCardHover={ () => this.handleOnCardHover(unt) }
+						onCardHover={ this.handleOnCardHover }
+						onHashTagCLick={ this.handleWebSiteRedirect }
 
 					/>
 					<Card
 						data={ dccd }
 						logo={ logos.dccd }
-						onCardHover={ () => this.handleOnCardHover(dccd) }
+						onCardHover={ this.handleOnCardHover }
+						onHashTagCLick={ this.handleWebSiteRedirect }
 					/>
 					<Card
 						data={ nctc }
 						logo={ logos.nctc }
-						onCardHover={ () => this.handleOnCardHover(nctc) }
+						onCardHover={ this.handleOnCardHover }
+						onHashTagCLick={ this.handleWebSiteRedirect }
 					/>
 				</div>
 
-				{ activeSchool.classes === [] ?
+				{ !activeSchool.classes ?
 					null
 					:
 					<div>
@@ -114,19 +120,18 @@ class Home extends Component {
 								: null }
 
 
-							{/* { filteredResult !== [] ?
+							{ searchText.length > 1 && filteredResult.length === 0 ?
 								<div
 									className={ ['tc  dib br3 pa3 mv4 ma2 grow ba bw2 shadow-5'] }
 								>
-									Sorry, No results
-
+									Sorry, No Results Found
 								</div>
 								:
+								<CardDetail data={ filteredResult } logo={ activeSchool.logo } activeSchool={ activeSchool } />
+
+							}
 
 
-							} */}
-
-							<CardDetail data={ filteredResult } logo={ activeSchool.logo } activeSchool={ activeSchool } />
 						</div>
 					</div>
 				}

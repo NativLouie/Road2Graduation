@@ -6,7 +6,7 @@ export const UNT = {
 	population: '38,087',
 	areaOfStudy: 'Information Technology',
 	graduation: 'Dec 12, 2019',
-	hashTag: ['#UNT', '#MeanGreen'],
+	hashTag: ['UNT', 'MeanGreen'],
 	genderDistribution: [
 		{ title: 'Male', value: 48, color: '#059033' },
 		{ title: 'Female', value: 52, color: 'white' },
@@ -206,7 +206,7 @@ export const DCCD = {
 	population: '79,000',
 	areaOfStudy: 'Network Admin & Support CCNA',
 	graduation: 'Dec 17, 2015',
-	hashTag: ['#DCCCD', '#Thunderducks'],
+	hashTag: ['DCCCD', 'Thunderducks'],
 	genderDistribution: [
 		{ title: 'Male', value: 42, color: '#0033A0' },
 		{ title: 'Female', value: 57, color: '#E4002B ' },
@@ -579,7 +579,7 @@ export const NCTC = {
 	population: '3,800',
 	areaOfStudy: null,
 	graduation: null,
-	hashTag: ['#NCTC', '#NCTCcorinth'],
+	hashTag: ['NCTC', 'NCTCcorinth'],
 	genderDistribution: [
 		{ title: 'Male', value: 44, color: 'rgb(195, 26, 49)' },
 		{ title: 'Female', value: 56, color: 'rgb(39, 58, 139)' },

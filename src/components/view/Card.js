@@ -8,8 +8,7 @@ export const Card = (props) => {
 	return (
 		<div
 			className={ ['tc ba dib br3 pa4 pv4 mv4 ma2 grow bw2 shadow-5'] }
-			onMouseEnter={ (e) => props.onCardHover(e, props.data) }
-			onMouseLeave={ props.onMouseLeave }
+			onMouseEnter={ () => props.onCardHover(props.data) }
 		>
 			<img className='br2' alt='logo' src={ props.logo } height='200px' width='300px' />
 			<div>
@@ -18,17 +17,9 @@ export const Card = (props) => {
 			<div>
 				<h4> { `Address: ${ school.address }` } </h4>
 				<h4> { <span>{ `HashTags:` }</span> } </h4>
-				{ school.hashTag.map((hashtag, i) => <h4 key={ i } onClick={ props.onHashTagCLick }><span id='hashTag'>{ `${ hashtag }` }</span> </h4>) }
-
-				{/*
-					{ school.hashTag.map((item, index) => {
-						return (
-
-						)
-					}) */}
-
-
-
+				{ school.hashTag.map((hashtag, i) => <div key={ i } onClick={ () => props.onHashTagCLick(hashtag) }>
+					<h4><span id='hashTag'>{ `#${ hashtag }` }</span> </h4>
+				</div>) }
 				<h4> { `Population: ${ school.population }` } </h4>
 			</div>
 			<div>
@@ -37,9 +28,10 @@ export const Card = (props) => {
 						animate={ true }
 						label={ ({ data, dataIndex }) =>
 							dataIndex === 0 ?
-								Math.round(data[dataIndex].percentage) + '% ' + ' Male'
+								`${ Math.round(data[dataIndex].percentage) }% Male`
 								:
-								Math.round(data[dataIndex].percentage) + '% ' + ' Female'
+								`${ Math.round(data[dataIndex].percentage) }% Female`
+
 						}
 						labelPosition={ 50 }
 						labelStyle={ {
