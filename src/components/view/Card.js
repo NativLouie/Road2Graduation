@@ -7,10 +7,10 @@ export const Card = (props) => {
 	const school = props.data
 	return (
 		<div
-			className={ ['tc ba dib br3 pa4 pv4 mv4 ma2 grow bw2 shadow-5'] }
+			className={ ['tc ba dib br3 pa2 pv2 mv4 ma1 grow bw2 shadow-5'] }
 			onMouseEnter={ () => props.onCardHover(props.data) }
 		>
-			<img className='br2' alt='logo' src={ props.logo } height='200px' width='300px' />
+			<img className='br2' alt='logo' src={ props.logo } height='150px' width='150px' />
 			<div>
 				<h2> { school.name } </h2>
 			</div>

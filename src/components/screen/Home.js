@@ -85,7 +85,7 @@ class Home extends Component {
 					<h1 className='f1'>Road2Graduation</h1>
 
 				</div>
-				<div>
+				<div style={ { flexDirection: 'row' } }>
 					<Card
 						data={ unt }
 						logo={ logos.unt }
